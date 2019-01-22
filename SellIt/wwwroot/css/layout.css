@@ -1,0 +1,130 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Merriweather:300i,400,400i');
+
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+}
+
+html {
+    font-size: 16px;
+}
+
+#side-nav {
+    z-index: 99;
+    font-family: 'Merriweather', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    color: black;
+    border: 1px red solid;
+    min-width: 100px;
+    max-width: 200px;
+    width: 20vw;
+    margin-top: 50px;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+}
+
+    #side-nav div {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        border: solid 1px grey;
+    }
+    #side-nav ul {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        list-style: none;
+        border: solid 1px grey;
+        height: 100%;
+        min-height: 400px;
+        width: 100%;
+    }
+        #side-nav ul li {
+            border-bottom: solid 1px green;
+            border-top: solid 1px green;
+            vertical-align: middle;
+            min-height: 50px;
+            width: 100%;
+        }
+
+            #side-nav ul li a {
+                text-decoration: none;
+                display: flex;
+                width: 100%;
+                height: 100%;
+                -webkit-align-items: center;
+                align-items: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                color: inherit;
+            }
+
+            #side-nav ul li:first-of-type {
+                padding-bottom: 50px;
+                display: flex;
+                -webkit-align-items: center;
+                align-items: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+            }
+
+        #side-nav div #nav-control {
+            position: absolute;
+            background-color: #b6b4b4;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transform: translateX(50%);
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+
+        }
+
+#banner-top {
+    display: flex;
+    height: 50px;
+    background-color: azure;
+    position: relative;
+}
+
+    #banner-top header {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-left: 20px;
+        /*height: 10%;*/
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #banner-top #user-cred {
+        height: 30px;
+        height: 50%;
+        text-align: center;
+        width: 20%;
+        position: absolute;
+        right: 0;
+        background-color: #8ce0eb;
+        color: black;
+        border-radius: 15px 0 0% 15px;
+    }
+
+    main {
+        margin-left: calc(20vw);
+    }
