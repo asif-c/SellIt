@@ -2,6 +2,8 @@
     ViewBag.Title = "Home";
 }
 
+@model ICollection<Post>
+
 @section Styles {
     <link rel="stylesheet" href="~/css/landing.css" />
 }
@@ -12,52 +14,15 @@
     <span><a href="#">Controversial</a></span>
 </nav>
 <div class="posts">
-    <div class="post">
-        <span class="post-user"><a href="#">User_pme</a></span>
-        <a href="#" class="post-topic"><p>This is a sample topic!!</p></a>
-        <div class="post-info">
-            <div><i>^ </i>: 20</div>
-            <div><i>^ </i>: 5</div>
-        </div>
-    </div>    
-    <div class="post">
-        <span class="post-user"><a href="#">User_pme</a></span>
-        <a href="#" class="post-topic"><p>This is a sample topic!!</p></a>
-        <div class="post-info">
-            <div><i>^ </i>: 20</div>
-            <div><i>^ </i>: 5</div>
-        </div>
-    </div>    
-    <div class="post">
-        <span class="post-user"><a href="#">User_pme</a></span>
-        <a href="#" class="post-topic"><p>This is a sample topic!!</p></a>
-        <div class="post-info">
-            <div><i>^ </i>: 20</div>
-            <div><i>^ </i>: 5</div>
-        </div>
-    </div>    
-    <div class="post">
-        <span class="post-user"><a href="#">User_pme</a></span>
-        <a href="#" class="post-topic"><p>This is a sample topic!!</p></a>
-        <div class="post-info">
-            <div><i>^ </i>: 20</div>
-            <div><i>^ </i>: 5</div>
-        </div>
-    </div>    
-    <div class="post">
-        <span class="post-user"><a href="#">User_pme</a></span>
-        <a href="#" class="post-topic"><p>This is a sample topic!!</p></a>
-        <div class="post-info">
-            <div><i>^ </i>: 20</div>
-            <div><i>^ </i>: 5</div>
-        </div>
-    </div>    
-    <div class="post">
-        <span class="post-user"><a href="#">User_pme</a></span>
-        <a href="#" class="post-topic"><p>This is a sample topic!!</p></a>
-        <div class="post-info">
-            <div><i>^ </i>: 20</div>
-            <div><i>^ </i>: 5</div>
-        </div>
-    </div>
+    @foreach (var post in Model)
+    {
+        <div class="post">
+            <span class="post-user"><a href="#">@post.User.Username</a></span>
+            <a href="#" class="post-topic"><p>@post.Heading</p></a>
+            <div class="post-info">
+                <div><i>^ </i>: @post.Rating.Upvotes</div>
+                <div><i>^ </i>: @post.Rating.Downvotes</div>
+            </div>
+        </div>    
+    }
 </div>
