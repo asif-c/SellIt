@@ -26,7 +26,6 @@ namespace SellIt
         {
             Config = config;
             SeedData();
-
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -39,11 +38,14 @@ namespace SellIt
 
             services.AddScoped<IPost, Post>()
                     .AddScoped<IChannel, Channel>()
-                    .AddScoped<HardCodedData>(x => new HardCodedData
-                    {
-                        Channels = Channels,
-                        Posts = Posts,
-                        Users = Users
+                    .AddScoped<HardCodedData>(x => {
+                        SeedData();
+                        return new HardCodedData
+                        {
+                            Channels = Channels,
+                            Posts = Posts,
+                            Users = Users
+                        };
                     });
         }
 
@@ -172,6 +174,7 @@ namespace SellIt
                 };
             }
 
+
             
             if (this.Comments is null)
             {
@@ -201,7 +204,6 @@ namespace SellIt
                         Content="ION 8000 is not the most advanced meter from Schneider, ION 9000 is",
 
                     },
-
 
                 };
             }

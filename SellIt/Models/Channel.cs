@@ -6,9 +6,9 @@ namespace SellIt.Models
     public class Channel : IChannel
     {
         public int Id { get; set ; }
-        [Required]
+        //[Required]
         public string Name { get; set; }
-        [Required]
+        //[Required]
         public User Admin { get; set; }
         public ICollection<Post> Posts { get; set; }
     }

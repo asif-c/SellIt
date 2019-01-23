@@ -6,12 +6,12 @@ namespace SellIt.Models
     public class Comment : IComment
     {
         public int Id { get; set; }
-        [Required]
+        //[Required]
         public User User { get; set; }
-        [Required]
+        //[Required]
         public string Content { get; set; }
         public Comment Parent { get; set; }
-        public ICollection<Comment> Children { get; set; }
+        public IEnumerable<Comment> Children { get; set; }
         public Post ParentPost { get; set; }
     }
 }
