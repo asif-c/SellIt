@@ -2,9 +2,10 @@
     ViewBag.Title = "Home";
 }
 
-@model ICollection<Post>
+@model HardCodedData
 
 @section Styles {
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/landing.css" />
 }
 
@@ -14,15 +15,15 @@
     <span><a href="#">Controversial</a></span>
 </nav>
 <div class="posts">
-    @foreach (var post in Model)
+    @foreach (var post in Model.Posts)
     {
         <div class="post">
             <span class="post-user"><a href="#">@post.User.Username</a></span>
             <a href="#" class="post-topic"><p>@post.Heading</p></a>
             <div class="post-info">
-                <div><i>^ </i>: @post.Rating.Upvotes</div>
-                <div><i>^ </i>: @post.Rating.Downvotes</div>
+                <div><i class="fas fa-angle-up"></i> : @post.Rating.Upvotes</div>
+                <div><i class="fas fa-angle-down"></i> : @post.Rating.Downvotes</div>
             </div>
-        </div>    
+        </div>
     }
 </div>

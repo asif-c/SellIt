@@ -1,0 +1,12 @@
+﻿@inject SellIt.Services.HardCodedData values
+@using System.Linq
+
+<ul>
+    <li>Home</li>
+    @foreach (var channel in values.Channels)
+    {
+        @*<li><a href="@Url.Action("Index", "SellIt", values.Channels.Where(x => x.Name.Contains(channel.Name)))">@channel.Name</a></li>*@
+        <li><a asp-action="Index" asp-route-channelName="@channel.Name">@channel.Name</a></li>
+    }
+</ul>
+<div id="nav-control"> > </div>

@@ -10,11 +10,9 @@ namespace SellIt.Models
     public class Post : IPost
     {
         public int Id { get ; set ; }
-        [Required]
-        [ForeignKey("UserId")]
+        //[Required]
         public User User { get; set; }
-        public int UserId { get; set; }
-        [Required]
+        //[Required]
         public string Heading { get; set; }
         public string Content { get; set; }
         public ICollection<Comment> Comments { get; set; }

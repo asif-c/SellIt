@@ -8,8 +8,8 @@ namespace SellIt.Services
 {
     public class HardCodedData
     {
-        public ICollection<User> Users { get; set; }
-        public ICollection<Post> Posts { get; set; }
-        public ICollection<Channel> Channels { get; set; }
+        public IList<User> Users { get; set; }
+        public IList<Post> Posts { get; set; }
+        public IList<Channel> Channels { get; set; }
     }
 }

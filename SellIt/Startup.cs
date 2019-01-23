@@ -19,13 +19,13 @@ namespace SellIt
         public IList<Channel> Channels { get; set; }
         public IList<User> Users { get; set; }
         public IList<Post> Posts { get; set; }
+        public IList<Comment> Comments { get; set; }
         public IConfiguration Config { get; set; }
 
         public Startup(IConfiguration config)
         {
             Config = config;
             SeedData();
-
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -38,11 +38,14 @@ namespace SellIt
 
             services.AddScoped<IPost, Post>()
                     .AddScoped<IChannel, Channel>()
-                    .AddScoped<HardCodedData>(x => new HardCodedData
-                    {
-                        Channels = Channels,
-                        Posts = Posts,
-                        Users = Users
+                    .AddScoped<HardCodedData>(x => {
+                        SeedData();
+                        return new HardCodedData
+                        {
+                            Channels = Channels,
+                            Posts = Posts,
+                            Users = Users
+                        };
                     });
         }
 
@@ -170,25 +173,6 @@ namespace SellIt
                     },
                 };
             }
-
-            //IList<Comment> GenerateRandomComments(Post parentPost, Comment parentComment, int maxNestedLevel, int currentLevel = 1)
-            //{
-            //    var rand = new Random((int)DateTime.UtcNow.Ticks);
-            //    var numberOfComments = rand.Next(5);
-            //    var comments = new List<Comment>(numberOfComments);
-
-            //    for (int i = 0; i < numberOfComments; i++)
-            //    {
-            //        comments.Add(new Comment
-            //        {
-            //            Content = $"Comment {i}",
-            //            ParentPost = parentPost,
-            //            Parent = parentComment,
-            //            Children = GenerateRandomComments(parentPost, )
-            //        })
-            //    }
-            //}
-
         }
     }
 }

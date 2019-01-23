@@ -6,11 +6,11 @@ namespace SellIt.Models
     public class User
     {
         public int Id { get; set; }
-        [Required]
+        //[Required]
         public string Username { get; set; }
-        [Required]
+        //[Required]
         public string Password { get; set; }
-        [Required]
+        //[Required]
         public string Email { get; set; }
         public ICollection<Channel> SubscribedChannels { get; set; }
         public ICollection<Channel> CreatedChannels { get; set; }
