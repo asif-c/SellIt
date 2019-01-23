@@ -19,6 +19,7 @@ namespace SellIt
         public IList<Channel> Channels { get; set; }
         public IList<User> Users { get; set; }
         public IList<Post> Posts { get; set; }
+        public IList<Comment> Comments { get; set; }
         public IConfiguration Config { get; set; }
 
         public Startup(IConfiguration config)
@@ -171,23 +172,39 @@ namespace SellIt
                 };
             }
 
-            //IList<Comment> GenerateRandomComments(Post parentPost, Comment parentComment, int maxNestedLevel, int currentLevel = 1)
-            //{
-            //    var rand = new Random((int)DateTime.UtcNow.Ticks);
-            //    var numberOfComments = rand.Next(5);
-            //    var comments = new List<Comment>(numberOfComments);
+            
+            if (this.Comments is null)
+            {
+                this.Comments = new List<Comment>
+                {
+                    new Comment
+                    {
+                        User="Jonathan Rex",
+                        Content="ION 9000 is an amzing product! But little pricy for an intermediate meter ",
 
-            //    for (int i = 0; i < numberOfComments; i++)
-            //    {
-            //        comments.Add(new Comment
-            //        {
-            //            Content = $"Comment {i}",
-            //            ParentPost = parentPost,
-            //            Parent = parentComment,
-            //            Children = GenerateRandomComments(parentPost, )
-            //        })
-            //    }
-            //}
+                    },
+                    new Comment
+                    {
+                        User="Michael L.",
+                        Content="ION 9000 should have a shorter lead time",
+                    },
+
+                    new Comment
+                    {
+                        User="Timothy H.",
+                        Content="The local distributor finding tool needs to be upgraded",
+                        
+                    },
+                    new Comment
+                    {
+                        User="Rajeev Singh",
+                        Content="ION 8000 is not the most advanced meter from Schneider, ION 9000 is",
+
+                    },
+
+
+                };
+            }
 
         }
     }
